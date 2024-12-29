@@ -10,8 +10,8 @@ import {
 } from "@aws-sdk/lib-dynamodb";
 
 if (
-  !process.env.AWS_DYNAMODB_ACCESS_KEY ||
-  !process.env.AWS_DYNAMODB_SECRET_ACCESS_KEY
+  !process.env.AWS_DYNAMODB_ACCESS_KEY_ENV ||
+  !process.env.AWS_DYNAMODB_SECRET_ACCESS_KEY_ENV
 ) {
   throw new Error(
     "Cannot Read env variable AWS_ACCESS_KEY_ID or AWS_SECRET_KEY"
@@ -19,10 +19,10 @@ if (
 }
 
 const ddbClientConfig: DynamoDBClientConfig = {
-  region: process.env.AWS_DYNAMODB_REGION!,
+  region: process.env.AWS_DYNAMODB_REGION_ENV!,
   credentials: {
-    accessKeyId: process.env.AWS_DYNAMODB_ACCESS_KEY,
-    secretAccessKey: process.env.AWS_DYNAMODB_SECRET_ACCESS_KEY,
+    accessKeyId: process.env.AWS_DYNAMODB_ACCESS_KEY_ENV!,
+    secretAccessKey: process.env.AWS_DYNAMODB_SECRET_ACCESS_KEY_ENV!,
   },
 };
 
