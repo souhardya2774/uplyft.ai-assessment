@@ -5,10 +5,20 @@ import { getSignedURL } from "@/actions/s3";
 import React, { useEffect, useState } from "react";
 import {  Table,  TableHeader,  TableBody,  TableColumn,  TableRow,  TableCell} from "@nextui-org/table";
 
+interface CSV {
+  _id: string;
+  filename: string;
+  column_count: number;
+  column_names: string[];
+  row_count: number;
+  file_size_bytes: number;
+  upload_timestamp: string; // or Date, depending on the format
+};
+
 export default function Home() {
   const [file, setFile] = useState<File | null>(null);
   const [isUploading, setIsUploading] = useState<boolean>(false);
-  const [csvs, setCSVs] = useState<any[] | null>(null);
+  const [csvs, setCSVs] = useState<CSV[] | null>(null);
 
   const computeSHA256 = async (file: File) => {
     const buffer = await file.arrayBuffer();
@@ -97,7 +107,7 @@ export default function Home() {
                 <TableColumn>Uploaded at</TableColumn>
               </TableHeader>
               <TableBody>
-                {csvs.map((csv: any) => (
+                {csvs.map((csv: CSV) => (
                   <TableRow key={csv._id}>
                     <TableCell>{csv?.filename}</TableCell>
                     <TableCell>{csv?.column_count}</TableCell>
