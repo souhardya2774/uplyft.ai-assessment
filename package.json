@@ -1,0 +1,36 @@
+{
+  "name": "uplyft.ai",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --turbopack",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@aws-sdk/client-dynamodb": "^3.716.0",
+    "@aws-sdk/client-s3": "^3.717.0",
+    "@aws-sdk/lib-dynamodb": "^3.716.0",
+    "@aws-sdk/s3-request-presigner": "^3.717.0",
+    "@nextui-org/system": "^2.4.5",
+    "@nextui-org/table": "^2.2.7",
+    "@nextui-org/theme": "^2.4.4",
+    "dotenv": "^16.4.7",
+    "framer-motion": "^11.15.0",
+    "next": "15.1.2",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "15.1.2",
+    "postcss": "^8",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5"
+  }
+}
